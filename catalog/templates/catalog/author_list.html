@@ -1,0 +1,18 @@
+<!-- Part 6 Challenge Yourself -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Author List</h1>
+  {% if author_list %}
+    <ul>
+      {% for author in author_list %}
+      <li>
+			<!-- Changed the author date of birth to be an if statement like the author date of death -->
+        <a href="{{ author.get_absolute_url }}">{{ author }} ({% if author.date_of_birth %}{{author.date_of_birth}}{% endif %} - {% if author.date_of_death %}{{author.date_of_death}}{% endif %})</a>
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no authors available in the library.</p>
+  {% endif %}
+{% endblock %}
